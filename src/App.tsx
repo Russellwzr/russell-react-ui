@@ -1,6 +1,11 @@
 import React from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import Button from './components/Button'
 import Menu from './components/Menu'
+import Icon from './components/Icon'
+
+library.add(fas)
 
 const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu
@@ -29,7 +34,7 @@ function App() {
       <br />
       {/* Menu Test */}
       <div>
-        {/*         <Menu defaultIndex="0" mode="horizontal" onSelect={(index: string) => alert(index)} defaultOpenSubMenus={[]}>
+        <Menu defaultIndex="0" mode="horizontal" onSelect={(index: string) => alert(index)} defaultOpenSubMenus={[]}>
           <MenuItem>link 1</MenuItem>
           <SubMenu title="link 2">
             <MenuItem>link 2-1</MenuItem>
@@ -38,7 +43,7 @@ function App() {
           </SubMenu>
           <MenuItem disabled>link 3</MenuItem>
           <MenuItem>link 4</MenuItem>
-        </Menu> */}
+        </Menu>
         <Menu defaultIndex="3" mode="vertical" onSelect={(index: string) => alert(index)} defaultOpenSubMenus={['1']}>
           <MenuItem>link 1</MenuItem>
           <SubMenu title="link 2">
@@ -49,6 +54,12 @@ function App() {
           <MenuItem disabled>link 3</MenuItem>
           <MenuItem>link 4</MenuItem>
         </Menu>
+      </div>
+      {/* Test Icon */}
+      <div>
+        <Icon icon="coffee" size="lg" theme="primary" />
+        <Icon icon="arrow-down" size="lg" theme="secondary" />
+        <Icon icon="arrow-up" size="lg" theme="success" />
       </div>
     </div>
   )
