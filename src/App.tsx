@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Button from './components/Button'
 import Menu from './components/Menu'
 import Icon from './components/Icon'
+import Transition from './components/Transition'
 
 library.add(fas)
 
@@ -11,6 +12,7 @@ const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu
 
 function App() {
+  const [show, setShow] = useState(false)
   return (
     <div>
       <br />
@@ -61,6 +63,19 @@ function App() {
         <Icon icon="arrow-down" size="lg" theme="secondary" />
         <Icon icon="arrow-up" size="lg" theme="success" />
       </div>
+      {/* Test Transition */}
+      <Button size="lg" onClick={() => setShow((prevShow) => !prevShow)}>
+        Show
+      </Button>
+      <Transition in={show} timeout={300} animation="zoom-in-left">
+        <div>
+          <p>Test Transition</p>
+          <p>Test Transition</p>
+          <p>Test Transition</p>
+          <p>Test Transition</p>
+          <p>Test Transition</p>
+        </div>
+      </Transition>
     </div>
   )
 }
