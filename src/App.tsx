@@ -5,6 +5,7 @@ import Button from './components/Button'
 import Menu from './components/Menu'
 import Icon from './components/Icon'
 import Transition from './components/Transition'
+import Alert from './components/Alert'
 
 library.add(fas)
 
@@ -64,18 +65,27 @@ function App() {
         <Icon icon="arrow-up" size="lg" theme="success" />
       </div>
       {/* Test Transition */}
-      <Button size="lg" onClick={() => setShow((prevShow) => !prevShow)}>
-        Show
-      </Button>
-      <Transition in={show} timeout={300} animation="zoom-in-left">
-        <div>
-          <p>Test Transition</p>
-          <p>Test Transition</p>
-          <p>Test Transition</p>
-          <p>Test Transition</p>
-          <p>Test Transition</p>
-        </div>
-      </Transition>
+      <div>
+        <Button size="lg" onClick={() => setShow((prevShow) => !prevShow)}>
+          Show
+        </Button>
+        <Transition in={show} timeout={300} animation="zoom-in-left">
+          <div>
+            <p>Test Transition</p>
+            <p>Test Transition</p>
+            <p>Test Transition</p>
+            <p>Test Transition</p>
+            <p>Test Transition</p>
+          </div>
+        </Transition>
+      </div>
+      {/* Test Alert */}
+      <div>
+        <Alert title="Default" description="This is a default alert!" closable type="default" />
+        <Alert title="Warning" description="This is a warning alert!" closable type="warning" />
+        <Alert title="Success" description="This is a success alert!" closable type="success" />
+        <Alert title="Danger" description="This is a danger alert!" closable type="danger" />
+      </div>
     </div>
   )
 }

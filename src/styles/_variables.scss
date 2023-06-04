@@ -176,6 +176,8 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 $box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
 
+/* Components */
+
 // Button Component
 $btn-font-weight: 400;
 $btn-padding-y: 0.375rem !default;
@@ -221,3 +223,13 @@ $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color: $gray-600 !default;
 
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+// Alert Component
+$alert-padding-y: 0.75rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-border-radius: $border-radius !default;
+$alert-title-font-weight: $font-weight-bold !default;
+$alert-border-width: $border-width !default;
+$alert-description-font-size: $font-size-sm !default;
+$alert-description-top-margin: 0.3rem !default;
