@@ -6,11 +6,14 @@ import Menu from './components/Menu'
 import Icon from './components/Icon'
 import Transition from './components/Transition'
 import Alert from './components/Alert'
+import Tabs from './components/Tabs'
 
 library.add(fas)
 
 const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu
+
+const TabItem = Tabs.Item
 
 function App() {
   const [show, setShow] = useState(false)
@@ -85,6 +88,36 @@ function App() {
         <Alert title="Warning" description="This is a warning alert!" closable type="warning" />
         <Alert title="Success" description="This is a success alert!" closable type="success" />
         <Alert title="Danger" description="This is a danger alert!" closable type="danger" />
+      </div>
+      {/* Test Tabs */}
+      <div>
+        <Tabs defaultIndex={0} type="card" onSelect={(i: number) => console.log(`select ${i}`)}>
+          <TabItem label="Tab 1">
+            <div>
+              <h1>This is Tab1!</h1>
+              <p>Let's test it~</p>
+            </div>
+          </TabItem>
+          <TabItem label="Tab 2" disabled>
+            <div>
+              <h1>This is Tab2!</h1>
+              <p>Let's test it~</p>
+            </div>
+          </TabItem>
+          <TabItem
+            label={
+              <div>
+                Tab 3
+                <Icon icon="coffee" size="lg" theme="primary" />
+              </div>
+            }
+          >
+            <div>
+              <h1>This is Tab3!</h1>
+              <p>Let's test it~</p>
+            </div>
+          </TabItem>
+        </Tabs>
       </div>
     </div>
   )
