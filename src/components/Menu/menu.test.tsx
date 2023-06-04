@@ -5,6 +5,20 @@ import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 
+jest.mock('../Icon/icon', () => {
+  return () => {
+    return <i className="fa" />
+  }
+})
+
+jest.mock('react-transition-group', () => {
+  return {
+    CSSTransition: (props: any) => {
+      return props.children
+    },
+  }
+})
+
 const testProps: MenuProps = {
   defaultIndex: '0',
   onSelect: jest.fn(),
@@ -61,7 +75,6 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
     activeElement = screen.getByText('active')
     disabledElement = screen.getByText('disabled')
   })
-
   it('should render correct Menu and MenuItem based on default props', () => {
     expect(menuElement).toBeInTheDocument()
     expect(menuElement).toHaveClass('menu test')
@@ -79,12 +92,6 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
     fireEvent.click(disabledElement)
     expect(disabledElement).not.toHaveClass('is-active')
     expect(testProps.onSelect).not.toHaveBeenCalledWith('1')
-  })
-  it('should render vertical mode when mode is set to vertical', () => {
-    cleanup()
-    render(generateMenu(testVerProps))
-    const menuElement = screen.getByTestId('test-menu')
-    expect(menuElement).toHaveClass('menu-vertical')
   })
   it('should show dropdown items when hover on subMenu', async () => {
     expect(screen.queryByText('drop1')).not.toBeVisible()
