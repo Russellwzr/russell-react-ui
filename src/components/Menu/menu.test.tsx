@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-render-in-setup */
 import React from 'react'
-import { render, RenderResult, fireEvent, cleanup, waitFor, screen } from '@testing-library/react'
+import { render, RenderResult, fireEvent, waitFor, screen } from '@testing-library/react'
 import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
